@@ -80,7 +80,7 @@ class LLMRubySynthSystem(System):
                             xorHighBit = 0,
                             intlvBits = intlv_bits,
                             intlvMatch = i)
-                interface.subarray_per_bank = 8
+                # interface.subarray_per_bank = 8
                 ctrl = MemCtrl()
                 ctrl.dram = interface
                 interface.device_size = str(int(self._channel_size / bpc)) + 'MB'

@@ -86,6 +86,12 @@ For details on how to run these experiments refer to [Running GUPSGen](#running-
 and measure the execution time of each kernel.
 For details on how to run these experiments refer to [Running GAPBS traces](#running-gapbs).
 
+### Compile
+
+```shell
+scons build/X86_MOESI_hammer/gem5.opt --default=X86 PROTOCOL=MOESI_hammer SLICC_HTML=True -j [#threads]
+```
+
 ### Running GUPSGen
 
 This set of experiments tests different memory models with memory traffic
@@ -185,6 +191,8 @@ This script requires the following as input arguments.
 
 * `trace_dir`: The path to the directory including traces for the kernel and
 memory model.
+* `mem_type`: Type of memory model to use.
+Make sure that `mem_type` and memory model from the trace match.
 * `num_cores`: Number of cores to simulate.
 * `num_chnls`: Number of memory channels to simulate.
 **NOTE**: Make sure to use `a power of 2` for this input.

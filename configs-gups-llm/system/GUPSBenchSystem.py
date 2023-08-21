@@ -49,7 +49,7 @@ class GUPSBenchSystem(System):
         self.mem_mode = 'timing'
         self.mem_ranges = [self._addr_range]
 
-        self.tgens = [GUPSGen(mem_size = self._table_size,
+        self.tgens = [GUPSGen(mem_size = str(self._table_size),
                             start_addr = i * self._table_size + randint(0, 16) * 64,
                             update_limit = num_updates)
                             for i in range(self._num_cores)]
@@ -82,7 +82,7 @@ class GUPSBenchSystem(System):
                 ctrl.dram.null = True
 
                 if self._mem_type == LLM:
-                    ctrl.dram.subarray_per_bank = 8
+                    # ctrl.dram.subarray_per_bank = 8
                     ctrl.dram.read_buffer_size = 6
                     ctrl.dram.write_buffer_size = 8
                     ctrl.dram.page_policy = 'close'
@@ -90,12 +90,12 @@ class GUPSBenchSystem(System):
                     ctrl.write_low_thresh_perc = 90
                     ctrl.min_writes_per_switch = 1
 
-                if self._mem_type == FGDRAM:
+                elif self._mem_type == FGDRAM:
                     ctrl.dram.read_buffer_size = 6
                     ctrl.dram.write_buffer_size = 8
                     ctrl.dram.page_policy = 'open_adaptive'
 
-                if self._mem == 'MicroBank':
+                elif self._mem == 'MicroBank':
                     interface.tBURST = '32ns'
                     interface.tRCD = '8ns'
                     interface.tCL = '10ns'

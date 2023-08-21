@@ -24,6 +24,8 @@ parser.add_argument(
                         synthetic traffic",
 )
 
+parser.add_argument("mem_type", type=str, help="type of memory to test")
+
 parser.add_argument(
     "num_chnls",
     type=int,
@@ -71,7 +73,7 @@ m5.instantiate()
 for i, tgen in enumerate(system.tgens):
     tgen.progress_check = "1s"
     args.index = i
-    tgen.start(createTraceTraffic(tgen, i, args.app, args.mem_type))
+    tgen.start(createTraceTraffic(tgen, i, args.trace_dir))
 
 done = 0
 while done < args.num_cores:
