@@ -68,10 +68,11 @@ class LLMRubySynthSystem(System):
     def createMemoryControllers(self):
         mem_ctrls = []
         num_int = self._num_channels * self._bpc
+        print(num_int)
         bpc = self._bpc
         addr_range = self.mem_ranges[0]
         intlv_low_bit = 6
-        intlv_bits = int(log(num_int, 2))
+        intlv_bits = int(log(num_int, 2)))
         if (self._mem_type == 'LLM'):
             for i in range(num_int):
                 interface = LLM()

@@ -105,7 +105,7 @@ cores to generate memory traffic.
 * `mem_type`: Specifies the type of DRAM to use.
 **Valid Options** are as follows:
     * `LLM`: Low Latency Memory (This work).
-    * `HBM: High Bandwidth Memory.
+    * `HBM`: High Bandwidth Memory.
     * `HBMSALP`: HBM with the additon of sub-array level parallelism presented
     in this [academic paper](https://ieeexplore.ieee.org/abstract/document/6237032).
     * `FGDRAM`: A model of fine-grain DRAM presented in this
@@ -191,14 +191,14 @@ This script requires the following as input arguments.
 
 * `trace_dir`: The path to the directory including traces for the kernel and
 memory model.
+* `num_cores`: Number of cores to simulate.
 * `mem_type`: Type of memory model to use.
 Make sure that `mem_type` and memory model from the trace match.
-* `num_cores`: Number of cores to simulate.
 * `num_chnls`: Number of memory channels to simulate.
 **NOTE**: Make sure to use `a power of 2` for this input.
 This is a limitation of the gem5 simulator.
-* `chnl_cap`: Capacity of each channel of memory in Gigabytes.
-We recommend using 16 for this input.
+* `chnl_cap`: Capacity of each channel of memory in Megabytes.
+We recommend using 2048 for this input.
 **NOTE**: This input does not influence the performance of the system.
 
 Below is an example command line.
