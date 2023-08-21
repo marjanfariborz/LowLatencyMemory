@@ -140,7 +140,7 @@ tar -xvzf {name of the file}
 After decompressing the file, the traces could be located in the
 `LLM_Mem_Traces` directory.
 The directory is organized as follows.
-
+```shell
 LLM_Mem_Traces/
 ├── app_bc/
 │   ├── FGDRAM
@@ -172,6 +172,7 @@ LLM_Mem_Traces/
     ├── HBM
     ├── HBMSALP
     └── LLM
+```
 
 At the first level, each sub-directory includes traces that are specific to one
 kernel of GAPBS.
