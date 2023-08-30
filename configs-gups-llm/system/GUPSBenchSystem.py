@@ -12,6 +12,7 @@ class GUPSBenchSystem(System):
     def __init__(self, num_cores, mem_type, num_chnls, num_updates):
         super(GUPSBenchSystem, self).__init__()
         self._mem = mem_type
+        print(self._mem)
         if mem_type == 'LLM':
             self._mem_type = LLM
             self._bpc = 64
@@ -125,6 +126,7 @@ class GUPSBenchSystem(System):
         self.mem_ctrls = mem_ctrls
 
     def connectComponents(self):
+        print("****", self._mem_type)
         if self._mem_type == LLM:
             self.membuses = [SystemXBar(
                             width = 64,
